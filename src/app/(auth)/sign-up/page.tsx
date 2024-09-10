@@ -1,15 +1,19 @@
 'use client';
+
 import { Button, buttonVariants } from '@/components/ui/button';
 import { Icons } from '@/components/ui/icons';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { cn } from '@/lib/utils';
+import {
+  AuthCredentialValidation,
+  AuthCredentialValidationTYPE
+} from '@/lib/validators/AccounValidationCredentials';
+import { trpc } from '@/trpc/client';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { AuthCredentialValidation, AuthCredentialValidationTYPE } from '@/lib/validators/AccounValidationCredentials';
-import { error } from 'console';
 
 const Page = () => {
   
@@ -18,6 +22,8 @@ const Page = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<AuthCredentialValidationTYPE>({ resolver: zodResolver(AuthCredentialValidation) });
+
+  const {data} = trpc.anyApiRoute.useQuery()
 
   const onSubmit = ({email, password}: AuthCredentialValidationTYPE) => {
     //send email
