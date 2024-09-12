@@ -18,7 +18,8 @@ export const authRouter = router({
                     equals: email,
                 },
             }
-        })
+        }) // /super comment
+        
         if(users.length !== 0) throw new TRPCError({code: 'CONFLICT'}) 
             await payload.create({
                 collection: 'users',
