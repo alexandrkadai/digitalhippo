@@ -7,8 +7,19 @@ const Users: CollectionConfig = {
       name: 'role',
       type: 'select',
       options: [
+<<<<<<< HEAD
         { label: 'Admin', value: 'admin' },
         { label: 'User', value: 'user' },
+=======
+        {
+          label: 'Admin',
+          value: 'admin',
+        },
+        {
+          label: 'User',
+          value: 'User',
+        },
+>>>>>>> save-my-work
       ],
     },
   ],
