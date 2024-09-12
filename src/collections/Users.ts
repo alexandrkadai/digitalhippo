@@ -1,10 +1,15 @@
-import { CollectionConfig } from "payload/types";
+import { CollectionConfig } from 'payload/types';
 
-const Users: CollectionConfig ={
-    slug: 'users',
-    fields: [
-       { name: 'role',
-        
-       }
-    ]
-}
+const Users: CollectionConfig = {
+  slug: 'users',
+  fields: [
+    {
+      name: 'role',
+      type: 'select',
+      options: [
+        { label: 'Admin', value: 'admin' },
+        { label: 'User', value: 'user' },
+      ],
+    },
+  ],
+};
